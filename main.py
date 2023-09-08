@@ -6,6 +6,14 @@ class KMeansClustering:
         self.k = k,
         self.centroids = None
 
+    @staticmethod
+    def euclidean_distance(data_point, centroids):
+        return np.sqrt(np.sum((centroids - data_point)**2, axis=1))
+
     def fit(self, X, max_iterations=200):
         self.centroids = np.random.uniform(np.amin(X, axis=0), np.amax(X, axis=0),
                                             size=(self.k, X.shape[1]))
+        
+        for _ in range(max_iterations):
+            y = []
+
