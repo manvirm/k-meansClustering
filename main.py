@@ -17,3 +17,7 @@ class KMeansClustering:
         for _ in range(max_iterations):
             y = []
 
+            for data_point in X:
+                distances = KMeansClustering.euclidean_distance(data_point, self.centroids)
+                cluster_num = np.argmin()
+
